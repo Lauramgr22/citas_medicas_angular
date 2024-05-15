@@ -6,6 +6,17 @@ import { URL_SERVICIOS } from 'src/app/config/config';
 // import { BehaviorSubject } from 'rxjs';
 import { routes } from '../routes/routes';
 
+interface token {
+  access_token: string | undefined
+  token_type: string
+  user: User
+}
+
+interface User {
+  id: number
+  name: string
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +27,7 @@ export class AuthService {
     public http: HttpClient,
     ) {}
 
-  login(email:any, password:any){
+  login(email:string, password:string){
     //localStorage.setItem('authenticated', 'true');
     //this.router.navigate([routes.adminDashboard]);
     let URL= URL_SERVICIOS +"/auth/login";
@@ -33,9 +44,10 @@ export class AuthService {
     );
   }
 
-  saveLocalStorage(auth:any){
-    if(auth && auth.acces_token){
-      localStorage.setItem("token", auth.acces_token);
+  saveLocalStorage(auth: token){
+
+    if(auth && auth.access_token){
+      localStorage.setItem("token", auth.access_token);
       localStorage.setItem("user", JSON.stringify(auth.user));
       localStorage.setItem('authenticated', 'true'); //Aqui se realiza la redireccion
       return true;

@@ -12,9 +12,10 @@ import { routes } from 'src/app/shared/routes/routes';
 export class LoginComponent implements OnInit {
   public routes = routes;
   public passwordClass = false;
+  public ERROR=false;
 
   form = new FormGroup({
-    email: new FormControl('testing@test.com', [
+    email: new FormControl('prueba@test.com', [
       Validators.required,
       Validators.email,
     ]),
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
 
   loginFormSubmit() {
     if (this.form.valid) {
+      this.ERROR= false;
       this.auth.login(this.form.value.email ? this.form.value.email : '', this.form.value.password ? this.form.value.password : '')
         .subscribe({
           next: (resp: any) => {
@@ -42,7 +44,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate([routes.adminDashboard]);
             } else{
               //Login no exitoso
-              alert("El usuario o cotrasena son incorrectos o no existen");
+              this.ERROR= true;
             }
             console.log(resp);
           },
