@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/auth/auth.service';
+import { AuthService, User } from 'src/app/shared/auth/auth.service';
 import { routes } from 'src/app/shared/routes/routes';
 import { SideBarService } from 'src/app/shared/side-bar/side-bar.service';
 
@@ -14,6 +14,7 @@ export class HeaderComponent {
   public openBox = false;
   public miniSidebar  = false;
   public addClass = false;
+  public user: User | undefined; 
 
 
   constructor(public router: Router,private sideBar: SideBarService, public auth: AuthService) {
@@ -24,6 +25,10 @@ export class HeaderComponent {
         this.miniSidebar = false;
       }
     });
+    
+    this.user = this.auth.user;
+    console.log(this.user);
+    
   }
 
   openBoxFunc() {

@@ -12,7 +12,7 @@ interface token {
   user: User
 }
 
-interface User {
+export interface User {
   id: number
   name: string
 }
@@ -21,32 +21,50 @@ interface User {
   providedIn: 'root',
 })
 export class AuthService {
+  user: User | undefined;
+  token: string | undefined;
 
   constructor(
     private router: Router,
     public http: HttpClient,
-    ) {}
+  ) {
+    this.getLocalStorage();
+  }
 
-  login(email:string, password:string){
+  getLocalStorage() {
+
+    const USER = localStorage.getItem("user")
+    const token = localStorage.getItem("token")
+    if (token && USER) {
+      this.user = JSON.parse(USER);
+      this.token = token;
+    } else {
+      this.user = undefined;
+      this.token = undefined;
+
+    }
+  }
+
+  login(email: string, password: string) {
     //localStorage.setItem('authenticated', 'true');
     //this.router.navigate([routes.adminDashboard]);
-    let URL= URL_SERVICIOS +"/auth/login";
-    return this.http.post(URL,{email:email, password:password}).pipe(
-      map((auth:any) => {
+    let URL = URL_SERVICIOS + "/auth/login";
+    return this.http.post(URL, { email: email, password: password }).pipe(
+      map((auth: any) => {
         console.log(auth);
-        const result= this.saveLocalStorage(auth);
+        const result = this.saveLocalStorage(auth);
         return result;
       }),
-      catchError((error:any) =>{
+      catchError((error: any) => {
         console.log(error);
         return of(undefined)
       })
     );
   }
 
-  saveLocalStorage(auth: token){
+  saveLocalStorage(auth: token) {
 
-    if(auth && auth.access_token){
+    if (auth && auth.access_token) {
       localStorage.setItem("token", auth.access_token);
       localStorage.setItem("user", JSON.stringify(auth.user));
       localStorage.setItem('authenticated', 'true'); //Aqui se realiza la redireccion
@@ -55,7 +73,7 @@ export class AuthService {
     return false;
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     localStorage.removeItem("authenticated");
