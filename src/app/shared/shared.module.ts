@@ -12,11 +12,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data/data.service';
 import { MatSortModule } from '@angular/material/sort';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from '../common-component/header/header.component';
+import { SidebarComponent } from '../common-component/sidebar/sidebar.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderComponent,
+    SidebarComponent,
+  ],
   imports: [
     CommonModule,
     NgxBootstrapModule,
@@ -45,8 +51,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSortModule,
     FormsModule,
     ReactiveFormsModule,
-    
-    
+    RouterModule,
+    NgApexchartsModule, 
   ],
   exports: [
     CommonModule,
@@ -61,9 +67,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatSortModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderComponent,
+    SidebarComponent,
+    RouterModule,
    
-    
   ],
   providers: [
     DataService,
