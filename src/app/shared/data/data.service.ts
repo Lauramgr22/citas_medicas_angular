@@ -199,6 +199,7 @@ export class DataService {
       showAsTab: false,
       separateRoute: false,
       menu: [
+        //Roles y Permisos
         {
           menuValue: 'Roles y Permisos',
           hasSubRoute: true,
@@ -220,6 +221,7 @@ export class DataService {
             },
           ],
         },
+        //Dashboard
         {
           menuValue: 'Dashboard',
           hasSubRoute: true,
@@ -245,6 +247,7 @@ export class DataService {
             },
           ],
         },
+        //Doctors
         {
           menuValue: 'Doctors',
           hasSubRoute: true,
@@ -274,6 +277,7 @@ export class DataService {
             },
           ],
         },
+        //Paicentes
         {
           menuValue: 'Patients',
           hasSubRoute: true,
@@ -303,6 +307,7 @@ export class DataService {
             },
           ],
         },
+        //Staff
         {
           menuValue: 'Staff',
           hasSubRoute: true,
@@ -342,6 +347,7 @@ export class DataService {
             },
           ],
         },
+        //Citas medicas
         {
           menuValue: 'Appointments',
           hasSubRoute: true,
@@ -366,6 +372,8 @@ export class DataService {
             },
           ],
         },
+        //Horario de doctor
+        /*
         {
           menuValue: 'Doctor Schedule',
           hasSubRoute: true,
@@ -390,6 +398,8 @@ export class DataService {
             },
           ],
         },
+        */
+       //Departamentos (especialidades)
         {
           menuValue: 'Departments',
           hasSubRoute: true,
@@ -414,6 +424,8 @@ export class DataService {
             },
           ],
         },
+        //Ventas
+        /*
         {
           menuValue: 'Accounts',
           hasSubRoute: true,
@@ -448,6 +460,8 @@ export class DataService {
             },
           ],
         },
+        */
+        //Gestionar pagos con citas medicas
         {
           menuValue: 'Payroll',
           hasSubRoute: true,
@@ -467,6 +481,7 @@ export class DataService {
             },
           ],
         },
+        //Chat
         {
           menuValue: 'Chat',
           route: routes.chat,
@@ -476,6 +491,8 @@ export class DataService {
           img: 'assets/img/icons/menu-icon-10.svg',
           subMenus: [],
         },
+        //Call
+        /*
         {
           menuValue: 'Call',
           hasSubRoute: true,
@@ -500,6 +517,9 @@ export class DataService {
             },
           ],
         },
+        */
+        //Email
+        /*
         {
           menuValue: 'Email',
           hasSubRoute: true,
@@ -524,6 +544,9 @@ export class DataService {
             },
           ],
         },
+        */
+        //Blog
+        /*
         {
           menuValue: 'Blog',
           hasSubRoute: true,
@@ -553,6 +576,8 @@ export class DataService {
             },
           ],
         },
+        */
+/*
         {
           menuValue: 'Assets',
           route: routes.assetsList,
@@ -563,6 +588,8 @@ export class DataService {
           base: 'assets',
           subMenus: [],
         },
+        */
+        //Actividad
         {
           menuValue: 'activities',
           route: routes.activities,
@@ -572,6 +599,7 @@ export class DataService {
           base: 'activities',
           subMenus: [],
         },
+        //Reporte
         {
           menuValue: 'Reports',
           hasSubRoute: true,
@@ -630,6 +658,7 @@ export class DataService {
             },
           ],
         },
+        //Configuracion
         {
           menuValue: 'Settings',
           route: routes.settings,
@@ -641,6 +670,7 @@ export class DataService {
         },
       ],
     },
+    /*
     {
       tittle: 'UI Elements',
       showAsTab: false,
@@ -732,6 +762,8 @@ export class DataService {
         },
       ],
     },
+    */
+   /*
     {
       tittle: 'Extras',
       showAsTab: false,
@@ -796,6 +828,7 @@ export class DataService {
         
       ],
     },
+    */
   ];
   public carousel1 = [
     {
@@ -1131,5 +1164,7 @@ export class DataService {
       dueDate: "18 Mar 2022",
       status: "Paid",
     },
+    
   ]
 }
+

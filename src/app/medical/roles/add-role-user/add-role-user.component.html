@@ -1,1 +1,86 @@
-<p>add-role-user works!</p>
+<div class="page-wrapper">
+    <div class="content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- MIGA DE PAN -->
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Roles y Permisos </a></li>
+                        <li class="breadcrumb-item"><i class="feather icon-chevron-right"></i></li>
+                        <li class="breadcrumb-item active">Registro</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row justify-content=center">
+            <div class="col-lg-8">
+                <div class="card-box">
+                    <h4 class="card-title">Creacion Rol</h4>
+                    <form action="#">
+                        <div class="form-group row">
+                            <label for="text" class="col-form-label col-md-2">Text Input</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card-box">
+                    <h4 class="card-title">Asignacion de Permisos</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Seccion</th>
+                                    <th>Permisos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngFor="let side of sideBar">
+                                    <tr>
+                                        <td>{{side.menuValue}}</td>
+                                        <td>
+                                            <div *ngIf="side.subMenus && side.subMenus.length > 0">
+                                                <ng-container *ngFor="let subMenu of side.subMenus">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="checkbox">
+                                                            {{ subMenu.menuValue }}
+                                                        </label>
+                                                    </div>
+                                                </ng-container>
+                                            </div>
+
+                                            <div class="" *ngIF=" side.subMenus && side.subMenus.length > 0">
+                                                <ng-container *ngFor="let subMenu of side.subMenus">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" name="checkbox">
+                                                            {{ subMenu.menuValue }}
+                                                        </label>
+                                                    </div>
+                                                </ng-container>
+                                            </div>
+                                            <div class="" *ngIF=" side.subMenus && side.subMenus.length == 0">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="checkbox"> {{side.menuValue}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
